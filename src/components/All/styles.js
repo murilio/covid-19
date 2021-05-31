@@ -7,6 +7,7 @@ export const Container = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 20px;
+  width: 100%;
 
   > .card {
     display: flex;
@@ -54,6 +55,7 @@ export const Container = styled.div`
 
   @media only screen and (min-width: 768px) {
     margin-bottom: 100px;
+    max-width: 400px;
 
     > .card {
       height: 49%;

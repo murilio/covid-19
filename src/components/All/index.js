@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 // styles
 import { Container, IconGlobal, IconUser, IconFocus, IconEscudo } from './styles'
@@ -24,22 +24,22 @@ export default function All () {
         <Container key={index}>
           <div className="card">
             <IconGlobal />
-            <span>Population</span>
+            <span>População Mundial</span>
             <p>{item.population.toLocaleString('pt-BR')}</p>
           </div>
           <div className="card">
             <IconUser />
-            <span>Deaths</span>
+            <span>Mortes covid-19</span>
             <p>{item.deaths.toLocaleString('pt-BR')}</p>
           </div>
           <div className="card">
             <IconFocus />
-            <span>Confirmed</span>
+            <span>Casos confirmados</span>
             <p>{item.confirmed.toLocaleString('pt-BR')}</p>
           </div>
           <div className="card">
             <IconEscudo />
-            <span>Recovered cases</span>
+            <span>Casos recuperados</span>
             <p>{item.recovered.toLocaleString('pt-BR')}</p>
           </div>
         </Container>
