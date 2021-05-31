@@ -4,21 +4,19 @@ export const Container = styled.section`
   margin-bottom: 50px;
 
   > .chart {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 100px;
 
-    canvas + canvas {
-      min-height: 260px;
+    @media (min-width: 768px) {
+      canvas {
+        max-height: 500px;
+        max-width: 500px;
+      }
     }
 
-    @media (min-width: 768px) {
-      flex-direction: row;
-
-      canvas {
-        max-height: 400px;
-        max-width: 400px;
-      }
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 
@@ -34,5 +32,4 @@ export const Container = styled.section`
   @media only screen and (min-width: 768px) {
     flex-direction: column!important;
   }
-
 `

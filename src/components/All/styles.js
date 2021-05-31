@@ -65,17 +65,17 @@ export const Container = styled.div`
 `
 
 export const IconGlobal = styled(AiOutlineGlobal)`
-  font-size: 22px;
+  font-size: 25px;
 `
 
 export const IconUser = styled(BiUserX)`
-  font-size: 26px;
+  font-size: 25px;
 `
 
 export const IconFocus = styled(RiFocus2Line)`
-  font-size: 22px;
+  font-size: 25px;
 `
 
 export const IconEscudo = styled(IoShieldCheckmarkOutline)`
-  font-size: 22px;
+  font-size: 25px;
 `

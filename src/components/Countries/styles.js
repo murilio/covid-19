@@ -12,15 +12,12 @@ export const Container = styled.div`
   margin: 0 0 40px 0;
   width: 100%;
 
-  > h4 {
-    font-size: 18px;
+  &::-webkit-scrollbar {
+    width: 8px;
   }
 
-  img {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    margin-right: 10px;
+  > h4 {
+    font-size: 18px;
   }
 
   table {
@@ -29,6 +26,13 @@ export const Container = styled.div`
     th, td {
       padding: 10px 15px;
       border-bottom: 1px solid #eee;
+
+      img {
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
 
       > a {
         display: block;
@@ -60,5 +64,5 @@ export const Container = styled.div`
 `
 
 export const ViewButton = styled(AiOutlineBarChart)`
-  font-size: 25px;
+  font-size: 30px;
 `

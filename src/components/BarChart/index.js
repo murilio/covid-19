@@ -6,7 +6,7 @@ import { Doughnut, Bar } from 'react-chartjs-2'
 import { Container } from './styles'
 
 // services
-import api from '../../services/api'
+import { api } from '../../services/api'
 
 export default function BarChart () {
   const [country, setCase] = useState({})
@@ -16,12 +16,12 @@ export default function BarChart () {
 
   async function loadCases () {
     const res = await api.get(`/cases?country=${search}`)
-    setCase(res.data.All)
+    setCase(res.data.All ? res.data.All : '')
   }
 
   async function loadVaccines () {
     const res = await api.get(`/vaccines/?country=${search}`)
-    setVaccine(res.data.All)
+    setVaccine(res.data.All ? res.data.All : '')
   }
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function BarChart () {
 
   return (
     <Container id="content">
-      <h1 id="t">Avanço dos casos: {search}</h1>
+      <h1>Avanço dos casos: {search}</h1>
       <div className="chart">
         <Doughnut
           data={{
@@ -41,17 +41,25 @@ export default function BarChart () {
               'Mortes'
             ],
             datasets: [{
-              data: [`${country.confirmed}`, `${country.recovered}`, `${country.deaths}`],
-              backgroundColor: ['#d35400', '#27ae60', '#2c3e50']
+              data: [
+                country.confirmed ? country.confirmed : 0,
+                country.recovered ? country.recovered : 0,
+                country.deaths ? country.deaths : 0
+              ],
+              backgroundColor: [
+                '#e58e26',
+                '#78e08f',
+                '#2c3e50'
+              ]
             }]
           }}
         />
         <Bar
           data={{
             labels: [
-              'População',
-              'Pessoas vacinadas',
-              'Pessoas parcialmente vacinadas'
+              `População ${vaccines.population ? vaccines.population.toLocaleString('pt-BR') : 0}`,
+              `População vacinada ${vaccines.people_vaccinated ? vaccines.people_vaccinated.toLocaleString('pt-BR') : 0}`,
+              `População parcialmente vacinada ${vaccines.people_partially_vaccinated ? vaccines.people_partially_vaccinated.toLocaleString('pt-BR') : 0}`
             ],
             datasets: [{
               label: 'vacinação',

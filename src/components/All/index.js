@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { Container, IconGlobal, IconUser, IconFocus, IconEscudo } from './styles'
 
 // services
-import api from '../../services/api'
+import { api } from '../../services/api'
 
 export default function All () {
   const [cases, setCases] = useState({})

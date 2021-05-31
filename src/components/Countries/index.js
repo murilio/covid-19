@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { Container, ViewButton } from './styles'
 
 // services
-import api from '../../services/api'
+import { api } from '../../services/api'
 
 export default function Countries () {
   const [cases, setCases] = useState([])
@@ -42,7 +42,7 @@ export default function Countries () {
               <td>{item[1].All.confirmed.toLocaleString('pt-BR')}</td>
               <td>{item[1].All.recovered ? item[1].All.recovered.toLocaleString('pt-BR') : 'Não informado'}</td>
               <td title="Ver gráficos">
-                <Link to={`/${item[0]}#t`}>
+                <Link to={`/${item[0]}`}>
                   <ViewButton />
                 </Link>
               </td>

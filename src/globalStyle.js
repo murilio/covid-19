@@ -14,9 +14,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--light-gray-isca);
+    background: rgb(83, 76, 206);
   }
-
 
   * {
     box-sizing: border-box;
@@ -48,7 +47,6 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
   }
-
 `
 
 export default GlobalStyle

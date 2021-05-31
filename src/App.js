@@ -1,6 +1,6 @@
 // routes
 import Routes from './routes'
 
-export default function App () {
-  return <Routes />
-}
+const App = () => <Routes />
+
+export default App
