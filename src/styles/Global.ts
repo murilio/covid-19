@@ -8,23 +8,24 @@ export const GlobalStyle = createGlobalStyle`
     --color-orange: #FA6400;
     --color-blue-dark: #1A1053;
     --color-gray-dark: #917C9B;
-    --color-white: #F1F3FB;
+    --color-gray: #F1F3FB;
+    --color-white: #FFF;
   }
   ::selection {
     background: var(--color-purple);
-    color: var(--color-white);
+    color: var(--color-gray);
   }
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 5px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background-color: var(--color-white);
   }
   ::-webkit-scrollbar-thumb {
-    background: var(--color-red);
+    background-color: var(--color-red);
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-purple);
+    background-color: var(--color-purple);
   }
   * {
     box-sizing: border-box;
@@ -36,7 +37,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
     scrollbar-width: thin;
     scroll-behavior: smooth;
-    background-color: var(--color-white);
+    background-color: var(--color-gray);
     scrollbar-color: var(--color-red) transparent;
   }
   body {
