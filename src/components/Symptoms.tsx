@@ -22,6 +22,11 @@ export default function Symptoms () {
 export const Container = styled.div`
   background-color: var(--color-purple);
   border-radius: 20px;
+  margin: 60px 0 0 0;
+
+  @media only screen and (min-width: 768px) {
+    margin: 83px 0 0 0;
+  }
 
   a {
     display: flex;
@@ -54,9 +59,5 @@ export const Container = styled.div`
         }
       }
     }
-  }
-
-  @media only screen and (min-width: 768px) {
-    margin: 83px 0 0 0;
   }
 `

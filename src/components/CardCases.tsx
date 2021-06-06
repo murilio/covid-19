@@ -47,7 +47,7 @@ export const Container = styled.section`
     align-items: center;
     gap: 5px;
 
-    box-shadow: 0 0 15px 0 #bbb;
+    box-shadow: 0 0 10px 0 #ddd;
     border-radius: 20px;
     padding: 10px 25px;
     background-color: var(--color-white);

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Data from '../components/Data'
+import Main from '../components/Main'
 
 import Header from '../components/Header'
 import LastNews from '../components/LastNews'
@@ -9,7 +9,7 @@ export default function Home () {
     <Container>
       <div className="containerHome">
         <Header />
-        <Data />
+        <Main />
       </div>
       <LastNews />
     </Container>

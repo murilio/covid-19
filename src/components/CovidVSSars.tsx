@@ -4,19 +4,14 @@ import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [
   {
-    name: 'A',
-    uv: 1000,
-    pv: 2000
+    name: 'Day 01',
+    covid: 1,
+    sars: 1
   },
   {
-    name: 'B',
-    uv: 2000,
-    pv: 3000
-  },
-  {
-    name: 'C',
-    uv: 3000,
-    pv: 4000
+    name: 'Day 91',
+    covid: 2000,
+    sars: 3000
   }
 ]
 
@@ -28,13 +23,23 @@ export default function CovidVsSars () {
         <p>casos diários e taxa de mortalidade</p>
       </div>
       <div className="contentCovidVsSars">
-        <AreaChart width={300} height={250} className="chart" data={data} margin={{ top: 10, right: 0, left: 20, bottom: 0 }}>
+        <AreaChart
+          data={data}
+          width={300}
+          height={250}
+          margin={{
+            top: 10,
+            right: 20,
+            left: 20,
+            bottom: 0
+          }}
+        >
           <defs>
-            <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="colorCovid" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#F9345E" stopOpacity={0.8} />
               <stop offset="95%" stopColor="#F9345E" stopOpacity={0} />
             </linearGradient>
-            <linearGradient id="colorPv" x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id="colorSars" x1="0" y1="0" x2="0" y2="1">
               <stop offset="5%" stopColor="#6236FF" stopOpacity={0.8} />
               <stop offset="95%" stopColor="#6236FF" stopOpacity={0} />
             </linearGradient>
@@ -43,8 +48,8 @@ export default function CovidVsSars () {
           <YAxis />
           <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
-          <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
-          <Area type="monotone" dataKey="pv" stroke="#82ca9d" fillOpacity={1} fill="url(#colorPv)" />
+          <Area type="monotone" dataKey="covid" stroke="#F9345E" fillOpacity={1} fill="url(#colorCovid)" />
+          <Area type="monotone" dataKey="sars" stroke="#6236FF" fillOpacity={1} fill="url(#colorSars)" />
         </AreaChart>
       </div>
     </Container>
