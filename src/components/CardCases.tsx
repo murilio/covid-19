@@ -31,14 +31,16 @@ export default function CardCases () {
 }
 
 export const Container = styled.section`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 20px;
 
-  @media only screen and (min-width: 768px) {
-    justify-content: space-between;
+  @media only screen and (min-width: 500px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media only screen and (min-width: 1120px) {
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .dados {
