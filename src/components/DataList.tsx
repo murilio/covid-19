@@ -1,16 +1,20 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
-const data = [{
-  country: 'Brazil',
-  cases: 312332
-}, {
-  country: 'United States',
-  cases: 3123
-}]
+import { api } from '../services/api'
 
 export default function DataList () {
   const [search, setSearch] = useState('')
+  const [data, setData] = useState([])
+
+  async function loadCases () {
+    const res = await api.get('/cases')
+    setData(res.data)
+  }
+
+  useEffect(() => {
+    loadCases()
+  }, [])
 
   return (
     <Container>
@@ -29,10 +33,11 @@ export default function DataList () {
       </div>
 
       <div id="countries" className="countries">
-        {data
-          .filter((item) => search === '' ? item : item.country.toLowerCase().includes(search.toLowerCase()))
-          .map(({ cases, country }, index) => (
-            <p key={index}>{cases.toLocaleString('pt-BR')} <span>{country}</span></p>
+        {Object.entries(data)
+          .filter((item) => search === '' ? item : item[0].toLowerCase().includes(search.toLowerCase()))
+          .sort((a, b) => (a[1].All.confirmed > b[1].All.confirmed) ? -1 : 1)
+          .map((item, index) => (
+            <p key={index}>{item[1].All.confirmed.toLocaleString('pt-BR')} <span>{item[0]}</span></p>
           ))}
       </div>
     </Container >
