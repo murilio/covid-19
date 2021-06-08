@@ -85,6 +85,7 @@ export const Container = styled.section`
     flex-direction: column;
 
     overflow-y: auto;
+    width: 100%;
 
     ::-webkit-scrollbar {
       height: 0;

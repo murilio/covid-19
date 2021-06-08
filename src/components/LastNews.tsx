@@ -15,13 +15,20 @@ export default function LastNews () {
 }
 
 export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 50px;
 
+  margin-top: 60px;
   width: 100%;
 
+  @media only screen and (min-width: 700px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
   @media only screen and (min-width: 1024px) {
+    margin-top: 0;
     width: 350px;
+    grid-template-columns: 1fr;
   }
 `

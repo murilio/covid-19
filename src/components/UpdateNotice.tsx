@@ -23,6 +23,9 @@ export default function UpdateNotice () {
 }
 
 export const Container = styled.div`
+  display: flex;
+  align-items: center;
+
   background-color: var(--color-white);
   border-radius: 20px;
 

@@ -22,7 +22,6 @@ export default function Symptoms () {
 export const Container = styled.div`
   background-color: var(--color-purple);
   border-radius: 20px;
-  margin: 60px 0 0 0;
 
   @media only screen and (min-width: 1024px) {
     margin: 83px 0 0 0;
@@ -38,6 +37,8 @@ export const Container = styled.div`
 
     img {
       margin: -50px 0 0 -20px;
+      max-width: 350px;
+      width: 100%;
     }
 
     .contentSymptoms {

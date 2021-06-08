@@ -34,8 +34,8 @@ export default function DataList () {
 
       <div id="countries" className="countries">
         {Object.entries(data)
-          .filter((item) => search === '' ? item : item[0].toLowerCase().includes(search.toLowerCase()))
           .sort((a, b) => (a[1].All.confirmed > b[1].All.confirmed) ? -1 : 1)
+          .filter((item) => search === '' ? item : item[0].toLowerCase().includes(search.toLowerCase()))
           .map((item, index) => (
             <p key={index}>{item[1].All.confirmed.toLocaleString('pt-BR')} <span>{item[0]}</span></p>
           ))}
@@ -99,9 +99,8 @@ export const Container = styled.div`
     padding: 0 0 0 15px;
 
     @media only screen and (min-width: 1024px) {
-      height: 800px;
+      height: 700px;
     }
-
 
     ::-webkit-scrollbar-track {
       background-color: var(--color-gray);
@@ -125,10 +124,6 @@ export const Container = styled.div`
       font-weight: 600;
       font-size: 15px;
       color: var(--color-blue-dark);
-
-      &:first-child {
-        display: none;
-      }
 
       span {
         font-weight: 500;
