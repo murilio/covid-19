@@ -55,6 +55,10 @@ export const Container = styled.div`
     max-width: 200px;
   }
 
+  @media only screen and (min-width: 1440px) {
+    max-width: 300px;
+  }
+
   .search {
     position: relative;
 
@@ -90,10 +94,14 @@ export const Container = styled.div`
     flex-direction: column;
     gap: 10px;
 
-    height: 100%;
-    max-height: 200px;
+    height: 300px;
     overflow: auto;
     padding: 0 0 0 15px;
+
+    @media only screen and (min-width: 1024px) {
+      height: 800px;
+    }
+
 
     ::-webkit-scrollbar-track {
       background-color: var(--color-gray);
@@ -117,6 +125,10 @@ export const Container = styled.div`
       font-weight: 600;
       font-size: 15px;
       color: var(--color-blue-dark);
+
+      &:first-child {
+        display: none;
+      }
 
       span {
         font-weight: 500;

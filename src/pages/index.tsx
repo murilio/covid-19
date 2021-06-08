@@ -23,7 +23,7 @@ export const Container = styled.main`
   padding: 20px 4%;
   width: 100%;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     flex-direction: row;
     justify-content: space-between;
   }
@@ -35,7 +35,7 @@ export const Container = styled.main`
 
     width: 100%;
 
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1024px) {
       width: calc(100% - 400px);
     }
   }

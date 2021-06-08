@@ -24,7 +24,7 @@ export const Container = styled.div`
   border-radius: 20px;
   margin: 60px 0 0 0;
 
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 1024px) {
     margin: 83px 0 0 0;
   }
 

@@ -73,6 +73,7 @@ export const Container = styled.section`
 
   display: flex;
   flex-direction: column;
+  gap: 20px;
 
   @media only screen and (min-width: 1024px) {
     flex-direction: row;

@@ -1,29 +1,54 @@
+import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
+import { api } from '../services/api'
+
+interface Cases {
+  population: number
+  confirmed: number
+  recovered: number
+  deaths: number
+}
+
+interface All {
+  All: Cases
+}
+
 export default function CardCases () {
+  const [cases, setCases] = useState<Cases>()
+
+  async function loadCases () {
+    const { data } = await api.get<All>('/cases?country=Global')
+    setCases(data.All)
+  }
+
+  useEffect(() => {
+    loadCases()
+  }, [])
+
   return (
     <Container>
       <div className="dados">
-        <p>Casos confirmados</p>
-        <span className="value">273,972</span>
+        <p>População</p>
+        <span className="value">{cases?.population.toLocaleString('pt-BR')}</span>
         <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
-        <p>Casos confirmados</p>
-        <span className="value">273,972</span>
+        <p>Confirmados</p>
+        <span className="value">{cases?.confirmed.toLocaleString('pt-BR')}</span>
         <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
-        <p>Casos confirmados</p>
-        <span className="value">273,972</span>
+        <p>Recuperados</p>
+        <span className="value">{cases?.recovered.toLocaleString('pt-BR')}</span>
         <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
-        <p>Casos confirmados</p>
-        <span className="value">273,972</span>
+        <p>Mortes</p>
+        <span className="value">{cases?.deaths.toLocaleString('pt-BR')}</span>
         <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
     </Container>
@@ -39,7 +64,7 @@ export const Container = styled.section`
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media only screen and (min-width: 1120px) {
+  @media only screen and (min-width: 1360px) {
     grid-template-columns: repeat(4, 1fr);
   }
 
