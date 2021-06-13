@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
+import { Area, AreaChart, Tooltip, XAxis, YAxis } from 'recharts'
 
 const data = [
   {
@@ -46,7 +46,6 @@ export default function CovidVsSars () {
           </defs>
           <XAxis dataKey="name" />
           <YAxis />
-          <CartesianGrid strokeDasharray="3 3" />
           <Tooltip />
           <Area type="monotone" dataKey="covid" stroke="#F9345E" fillOpacity={1} fill="url(#colorCovid)" />
           <Area type="monotone" dataKey="sars" stroke="#6236FF" fillOpacity={1} fill="url(#colorSars)" />

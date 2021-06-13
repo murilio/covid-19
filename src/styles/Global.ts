@@ -19,10 +19,11 @@ export const GlobalStyle = createGlobalStyle`
     width: 5px;
   }
   ::-webkit-scrollbar-track {
-    background-color: var(--color-white);
+    background-color: var(--color-gray);
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--color-red);
+    border-radius: 10px;
   }
   ::-webkit-scrollbar-thumb:hover {
     background-color: var(--color-purple);

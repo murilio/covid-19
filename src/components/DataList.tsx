@@ -8,8 +8,8 @@ export default function DataList () {
   const [data, setData] = useState([])
 
   async function loadCases () {
-    const res = await api.get('/cases')
-    setData(res.data)
+    const { data } = await api.get('/cases')
+    setData(data)
   }
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function DataList () {
           name="country"
           list="countries"
           autoComplete="off"
-          placeholder="Procurar cidade"
+          placeholder="Procurar país"
           onChange={(e) => setSearch(e.target.value)}
         />
       </div>

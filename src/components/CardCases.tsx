@@ -31,25 +31,21 @@ export default function CardCases () {
       <div className="dados">
         <p>População</p>
         <span className="value">{cases?.population.toLocaleString('pt-BR')}</span>
-        <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
         <p>Confirmados</p>
         <span className="value">{cases?.confirmed.toLocaleString('pt-BR')}</span>
-        <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
         <p>Recuperados</p>
         <span className="value">{cases?.recovered.toLocaleString('pt-BR')}</span>
-        <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
 
       <div className="dados">
         <p>Mortes</p>
         <span className="value">{cases?.deaths.toLocaleString('pt-BR')}</span>
-        <span>23% <span className="material-icons-outlined icon">arrow_drop_down</span></span>
       </div>
     </Container>
   )
