@@ -33,12 +33,27 @@ export default function DataList () {
       </div>
 
       <div id="countries" className="countries">
-        {Object.entries(data)
-          .sort((a, b) => (a[1].All.confirmed > b[1].All.confirmed) ? -1 : 1)
-          .filter((item) => search === '' ? item : item[0].toLowerCase().includes(search.toLowerCase()))
-          .map((item, index) => (
-            <p key={index}>{item[1].All.confirmed.toLocaleString('pt-BR')} <span>{item[0]}</span></p>
-          ))}
+        <table cellSpacing={0}>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Casos</th>
+              <th>Países</th>
+            </tr>
+          </thead>
+          <tbody>
+            {Object.entries(data)
+              .sort((a, b) => (a[1].All.confirmed > b[1].All.confirmed) ? -1 : 1)
+              .filter((item) => search === '' ? item : item[0].toLowerCase().includes(search.toLowerCase()))
+              .map((item, index) => (
+                <tr key={index}>
+                  <td><img src={`${item[1].All.abbreviation ? `https://disease.sh/assets/img/flags/${item[1].All.abbreviation.toLowerCase()}.png` : 'https://disease.sh/assets/img/virus.png'}`} alt={item[0]} /></td>
+                  <td className="cases">{item[1].All.confirmed.toLocaleString('pt-BR')}</td>
+                  <td>{item[0]}</td>
+                </tr>
+              ))}
+          </tbody>
+        </table>
       </div>
     </Container >
   )
@@ -48,6 +63,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 20px;
+  position: relative;
 
   width: 100%;
 
@@ -96,7 +112,6 @@ export const Container = styled.div`
 
     height: 300px;
     overflow: auto;
-    padding: 0 0 0 15px;
 
     @media only screen and (min-width: 1024px) {
       height: 700px;
@@ -114,21 +129,48 @@ export const Container = styled.div`
       background-color: var(--color-purple);
     }
 
-    p {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    table {
+      width: 100%;
 
-      cursor: pointer;
-      min-height: 30px;
-      font-weight: 600;
-      font-size: 15px;
-      color: var(--color-blue-dark);
+      thead {
+        position: sticky;
+        top: 0;
+        background-color: var(--color-white);
+      }
 
-      span {
-        font-weight: 500;
-        font-size: 12px;
-        color: var(--color-gray-dark);
+      tbody, tr {
+        .cases {
+          color: var(--color-orange);
+          font-weight: 600;
+        }
+
+        td {
+          font-size: 15px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+        }
+      }
+
+      th, td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #eee;
+
+        &:nth-child(4) {
+          display: none;
+
+          @media (min-width: 1024px) {
+            display: table-cell;
+          }
+        }
+      }
+
+      th {
+        text-align: left;
       }
     }
   }
