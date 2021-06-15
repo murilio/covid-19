@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import Main from '../components/Main'
+import dynamic from 'next/dynamic'
 
 import Header from '../components/Header'
 import LastNews from '../components/LastNews'
+
+const Main = dynamic(() => import('../components/Main'), { ssr: false })
 
 export default function Home () {
   return (

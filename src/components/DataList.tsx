@@ -114,7 +114,7 @@ export const Container = styled.div`
     overflow: auto;
 
     @media only screen and (min-width: 1024px) {
-      height: 700px;
+      height: 750px;
     }
 
     ::-webkit-scrollbar-track {

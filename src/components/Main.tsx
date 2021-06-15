@@ -1,16 +1,17 @@
 import styled from 'styled-components'
 
 import DataList from './DataList'
-// import GeoChart from './GeoChart'
-// import LineChart from './LineChart'
+import Map from './Map'
 
 export default function Main () {
   return (
     <Container>
       <DataList />
       <div className="containerMain">
-        {/* <GeoChart />
-        <LineChart /> */}
+        <Map
+          location={[-7.1237, -34.8656]}
+          defaultPosition={[-7.1237, -34.8656]}
+        />
       </div>
     </Container>
   )
@@ -42,6 +43,10 @@ export const Container = styled.section`
 
     ::-webkit-scrollbar {
       height: 0;
+    }
+
+    .leaflet-top {
+      inset: auto 20px 20px auto;
     }
   }
 `
